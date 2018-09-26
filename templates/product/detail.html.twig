@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="UTF-8">
+     <title>{% block title %} La Poissonnerie !{% endblock %}</title>
+     {% block stylesheets %}{% endblock %}
+ </head>
+ <body>
+ <ul>
+     <li>
+         <a href="{{ path('homepage') }}">Accueil</a>
+     </li>
+ </ul>
+     <h1>Jeu {{games_id}}</h1>
+
+ </body>
+
+ </html>

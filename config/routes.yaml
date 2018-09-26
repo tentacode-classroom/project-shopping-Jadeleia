@@ -3,5 +3,5 @@ app_home_page:
     controller: App\Controller\HomepageController::home
 
 app_product_page:
-    path: /product/123
+    path: /product/game.id
     controller: App\Controller\ProductController::product

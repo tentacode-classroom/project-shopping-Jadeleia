@@ -10,15 +10,17 @@
           <a href="http://localhost:8000/">Accueil</a>
       </li>
     </ul>
-
+<ul>
     {% for game in games  %}
-
-    <ul>
     <li>
-      {{game.id}}
-      {{game.name}}
-      </li>
-      </ul>
+          <a href="{{ path('product_detail', {
+            'productId': game.id
+                  }) }}">
+                      {{ game.name|upper }} {{ game.id }}
+                  </a>
+              </li>
     {% endfor %}
-</body>
+    </ul>
+
+    </body>
 </html>

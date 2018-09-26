@@ -12,8 +12,8 @@ class ProductController extends AbstractController
      */
     public function index(int $productId)
     {
-      return $this->render("/layout/menu.html.twig", [
-        'games' => $games,
+      return $this->render("/product/detail.html.twig", [
+        'games_id' => $productId,
       ]);
     }
 }
