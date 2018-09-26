@@ -1,0 +1,7 @@
+app_home_page:
+    path: /
+    controller: App\Controller\HomepageController::home
+
+app_product_page:
+    path: /product/123
+    controller: App\Controller\ProductController::product

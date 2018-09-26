@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <ul>
+      <li>
+          <a href="http://localhost:8000/">Accueil</a>
+      </li>
+    </ul>
+
+    {% for game in games  %}
+
+    <ul>
+    <li>
+      {{game.id}}
+      {{game.name}}
+      </li>
+      </ul>
+    {% endfor %}
+</body>
+</html>
