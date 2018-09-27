@@ -3,60 +3,48 @@
 namespace App\Repository;
 
 use App\Entity\Game;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Symfony\Bridge\Doctrine\RegistryInterface;
 
-class GameRepository
+/**
+ * @method Game|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Game|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Game[]    findAll()
+ * @method Game[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ */
+class GameRepository extends ServiceEntityRepository
 {
-  private $games;
-
-  public function __construct()
-  {
-    $game1 = new Game();
-    $game1->setId(1);
-    $game1->setName('E.T. the Extra-Terrestrial');
-    $game1->setConsole('Atari 2600');
-    $game1->setType('Aventure');
-    $game1->setDate(1982);
-    $game1->setPrice(15);
-
-    $game2 = new Game();
-    $game2->setId(2);
-    $game2->setName('Pong');
-    $game2->setConsole('Borne arcade');
-    $game2->setType('Sport');
-    $game2->setDate(1972);
-    $game2->setPrice(15);
-
-    $game3 = new Game();
-    $game3->setId(3);
-    $game3->setName('Super Mario 64');
-    $game3->setConsole('Nintendo 64');
-    $game3->setType('Plateforme');
-    $game3->setDate(1996);
-    $game3->setPrice(15);
-
-    $this->games = [
-           $game1,
-           $game2,
-           $game3,
-       ];
-  }
-
-  public function findAll(): array
-  {
-    return $this->games;
-  }
-
-  public function findOneById(int $id): game
-  {
-    foreach ($this->games as $game) {
-      if($game->getId() === $id) {
-        return $game;
-      }
+    public function __construct(RegistryInterface $registry)
+    {
+        parent::__construct($registry, Game::class);
     }
 
-    throw new \RuntimeException(sprintf(
-          'No game found with id "%s"',
-          $id
-      ));
-  }
+//    /**
+//     * @return Game[] Returns an array of Game objects
+//     */
+    /*
+    public function findByExampleField($value)
+    {
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.exampleField = :val')
+            ->setParameter('val', $value)
+            ->orderBy('g.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    */
+
+    /*
+    public function findOneBySomeField($value): ?Game
+    {
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.exampleField = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    */
 }
