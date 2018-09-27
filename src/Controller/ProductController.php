@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\GameRepository;
 
 class ProductController extends AbstractController
 {
@@ -12,8 +13,12 @@ class ProductController extends AbstractController
      */
     public function index(int $productId)
     {
+
+      $gameRepository = new GameRepository();
+      $game = $gameRepository->findOneById($productId);
+
       return $this->render("/product/detail.html.twig", [
-        'games_id' => $productId,
+        'game' => $game,
       ]);
     }
 }

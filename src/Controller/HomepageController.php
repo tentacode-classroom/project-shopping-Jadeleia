@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\GameRepository;
 
 class HomepageController extends AbstractController
 {
@@ -12,16 +13,9 @@ class HomepageController extends AbstractController
      */
     public function home()
     {
-      $games = [
-          [
-            'name' => 'ET',
-            'id' => 1,
-          ],
-          [
-            'name' => 'Pong',
-            'id' => 2,
-          ],
-      ];
+
+      $gameRepository = new GameRepository;
+      $games = $gameRepository->findAll();
 
       return $this->render("/layout/menu.html.twig", [
         'games' => $games,

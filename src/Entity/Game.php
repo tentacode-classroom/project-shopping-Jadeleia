@@ -1,11 +1,15 @@
-class game
+<?php
+
+namespace App\Entity;
+
+class Game
 {
   private $id;
   private $name;
   private $console;
   private $type;
   private $date;
-  private $price
+  private $price;
 
   public function setId(int $id)
   {

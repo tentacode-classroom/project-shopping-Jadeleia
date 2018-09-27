@@ -1,3 +1,7 @@
+<?php
+
+namespace App\Entity;
+
 class user
 {
   public function setId(int $id)
