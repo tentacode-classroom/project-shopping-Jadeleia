@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Game;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\GameRepository;
@@ -14,7 +15,7 @@ class HomepageController extends AbstractController
     public function home()
     {
 
-      $gameRepository = new GameRepository;
+      $gameRepository = $this->getDoctrine()->getRepository(Game::class);
       $games = $gameRepository->findAll();
 
       return $this->render("/layout/menu.html.twig", [

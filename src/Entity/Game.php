@@ -32,7 +32,7 @@ class Game
     private $type;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="integer")
      */
     private $date;
 
@@ -82,12 +82,12 @@ class Game
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?int
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setDate(int $date): self
     {
         $this->date = $date;
 
